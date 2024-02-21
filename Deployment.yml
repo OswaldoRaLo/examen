@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-examen
+  namespace: api-oswaldo
+  labels:
+    app: api-examen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-examen
+  template:
+    metadata:
+      labels:
+        app: api-examen
+    spec:
+      containers:
+        - name: api-examen
+          image: localhost:5000/servicios-cloud-oswaldo:1
+          ports:
+            - containerPort: 5000
